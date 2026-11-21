@@ -1,11 +1,13 @@
+import React from 'react';
+import { useState } from 'react'
+import Tooltip from './Tooltip'
 
-import React from "react";
-import './../styles/App.css';
-
-const App = () => {
+  const App = () => {
+  
   return (
     <div>
         {/* Do not remove the main div */}
+    <Tooltip toolTipText={"This is a tooltip"} toolTipTextAnother={"This is another tooltip"}/>
     </div>
   )
 }
