@@ -1,15 +1,17 @@
-import React from 'react';
-import { useState } from 'react'
-import Tooltip from './Tooltip'
+import React from "react";
+import Tooltip from "./Tooltip.jsx";
 
-  const App = () => {
-  
+function App() {
   return (
     <div>
-        {/* Do not remove the main div */}
-    <Tooltip toolTipText={"This is a tooltip"} toolTipTextAnother={"This is another tooltip"}/>
+      <Tooltip
+        toolTipText="This is the first tooltip"
+        toolTipTextAnother="This is the second tooltip"
+      >
+        <h1>Hover over me</h1>
+      </Tooltip>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
