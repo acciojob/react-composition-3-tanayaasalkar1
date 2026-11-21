@@ -1,29 +1,37 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
 
-
-const Tooltip = ({toolTipText, toolTipTextAnother}) => {
+const Tooltip = ({ toolTipText, toolTipTextAnother, children }) => {
   const [isShow, setShow] = useState(false);
 
-  function showTooltip() {
-    setShow(true);
-  }
-  function hideTooltip() {
-    setShow(false);
-  }
   return (
     <div>
-        {/* Do not remove the main div */}
-  {isShow ?<p className="tooltiptext">{toolTipText}</p> : null}
-        <h1 className="tooltip" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me</h1>
-        <hr/>
-     {isShow ? <p className="tooltiptext">{toolTipTextAnother} </p>: null}
-        <h2 className="tooltip" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me to see another tooltip</h2>
-        <hr/>
+      {/* Do not remove the main div */}
 
+      <div
+        className="tooltip"
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+      >
+        {children}
+        <span className="tooltiptext">{toolTipText}</span>
+      </div>
+
+      <hr />
+
+      <div
+        className="tooltip"
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+      >
+        <h2>Hover over me to see another tooltip</h2>
+        <span className="tooltiptext">{toolTipTextAnother}</span>
+      </div>
+
+      <hr />
     </div>
-  )
-}
+  );
+};
 
-export default Tooltip
+export default Tooltip;
