@@ -4,13 +4,22 @@ import './../styles/App.css';
 
 
 const Tooltip = ({toolTipText, toolTipTextAnother}) => {
-  
+  const [isShow, setShow] = useState(false);
+
+  function showTooltip() {
+    setShow(true);
+  }
+  function hideTooltip() {
+    setShow(false);
+  }
   return (
     <div>
         {/* Do not remove the main div */}
-        <h1>Hover over me</h1>
+  {isShow ? <p>This is a Tool tip</p> : null}
+        <h1 onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me</h1>
         <hr/>
-        <h2>Hover over me to see another tooltip</h2>
+     {isShow ? <p>This is a another Tool tip</p> : null}
+        <h2 onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me to see another tooltip</h2>
         <hr/>
 
     </div>
