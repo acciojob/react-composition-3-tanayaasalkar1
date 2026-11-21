@@ -15,11 +15,11 @@ const Tooltip = ({toolTipText, toolTipTextAnother}) => {
   return (
     <div>
         {/* Do not remove the main div */}
-  {isShow ? <p>This is a Tool tip</p> : null}
-        <h1 onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me</h1>
+  {isShow ?<p className="tooltiptext">{toolTipText}</p> : null}
+        <h1 className="tooltip" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me</h1>
         <hr/>
-     {isShow ? <p>This is a another Tool tip</p> : null}
-        <h2 onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me to see another tooltip</h2>
+     {isShow ? <p className="tooltiptext">{toolTipTextAnother} </p>: null}
+        <h2 className="tooltip" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>Hover over me to see another tooltip</h2>
         <hr/>
 
     </div>
